@@ -32,7 +32,7 @@ export default ({ mode }: any) => {
     // server config
     server: {
       // host: '192.168.0.0',
-      port: 8088,
+      port: 5173,
       open: true, // auto open
       hmr: true,
       cors: true,

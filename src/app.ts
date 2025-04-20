@@ -23,9 +23,8 @@ class App {
     this.canvas.style.height = "100%";
     this.canvas.id = "renderCanvas";
     document.body.appendChild(this.canvas);
-
-    //  this.init(); // Uncomment to use WebGL2 engine
-    this.initWebGPU(); // Comment not to use WebGPU engine
+    this.init(); // Uncomment to use WebGL2 engine
+    // this.initWebGPU(); // Comment not to use WebGPU engine
   }
 
   async init(): Promise<void> {
@@ -90,7 +89,10 @@ class App {
     // Works only in DEV mode to reduce the size of the PRODUCTION build
     // Comment IF statement to work in both modes
     if (import.meta.env.DEV) {
-      await Promise.all([import("@babylonjs/core/Debug/debugLayer"), import("@babylonjs/inspector")]);
+      await Promise.all([
+        import("@babylonjs/core/Debug/debugLayer"),
+        import("@babylonjs/inspector"),
+      ]);
 
       window.addEventListener("keydown", (ev) => {
         // Shift+Ctrl+Alt+I
